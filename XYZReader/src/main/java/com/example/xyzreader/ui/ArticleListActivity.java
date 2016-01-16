@@ -57,7 +57,8 @@ public class ArticleListActivity extends AppCompatActivity implements
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(cl, "Your message", Snackbar.LENGTH_SHORT)
+                refresh();
+                Snackbar.make(cl, "Refreshing now!", Snackbar.LENGTH_SHORT)
                         .setAction("Undo", this)
                         .show();
             }

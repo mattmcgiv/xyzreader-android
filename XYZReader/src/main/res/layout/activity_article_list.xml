@@ -62,7 +62,7 @@
         android:id="@+id/fab_normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/abc_btn_check_material"
+        android:src="@drawable/ic_refresh_white_48dp"
         android:layout_gravity="bottom|right"
         android:layout_marginRight="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
