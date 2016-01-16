@@ -9,6 +9,9 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -33,6 +36,7 @@ import com.example.xyzreader.data.UpdaterService;
 public class ArticleListActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
+    private CoordinatorLayout cl;
     private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
@@ -42,11 +46,22 @@ public class ArticleListActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
         ((CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout)).setTitle("Got it.");
+        this.cl = (CoordinatorLayout) findViewById(R.id.main_content);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
         final View toolbarContainerView = findViewById(R.id.appBarLayout);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+
+        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fab_normal);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(cl, "Your message", Snackbar.LENGTH_SHORT)
+                        .setAction("Undo", this)
+                        .show();
+            }
+        });
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         getLoaderManager().initLoader(0, null, this);
