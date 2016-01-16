@@ -16,13 +16,14 @@
             <FrameLayout
                 android:id="@+id/photo_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/theme_accent">
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent">
                 <!--suppress AndroidLintContentDescription -->
                 <ImageView
                     android:id="@+id/photo"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
                  />
 
                 <View
