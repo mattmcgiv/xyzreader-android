@@ -11,6 +11,8 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
@@ -47,6 +49,8 @@ public class ArticleDetailFragment extends Fragment implements
     private ObservableScrollView mScrollView;
     private DrawInsetsFrameLayout mDrawInsetsFrameLayout;
     private ColorDrawable mStatusBarColorDrawable;
+    private CoordinatorLayout cl;
+    private android.support.v7.widget.Toolbar mToolbar;
 
     private int mTopInset;
     private View mPhotoContainerView;
@@ -112,16 +116,23 @@ public class ArticleDetailFragment extends Fragment implements
             }
         });
 
+
         mScrollView = (ObservableScrollView) mRootView.findViewById(R.id.scrollview);
         mScrollView.setCallbacks(new ObservableScrollView.Callbacks() {
             @Override
             public void onScrollChanged() {
                 mScrollY = mScrollView.getScrollY();
                 getActivityCast().onUpButtonFloorChanged(mItemId, ArticleDetailFragment.this);
-                mPhotoContainerView.setTranslationY((int) (mScrollY - mScrollY / PARALLAX_FACTOR));
+                //mPhotoContainerView.setTranslationY((int) (mScrollY - mScrollY / PARALLAX_FACTOR));
                 updateStatusBar();
             }
         });
+
+        ((CollapsingToolbarLayout) mRootView.findViewById(R.id.collapsing_toolbar_layout_detail)).setTitle("Detail.");
+        this.cl = (CoordinatorLayout) mRootView.findViewById(R.id.main_content_detail);
+        mToolbar = (android.support.v7.widget.Toolbar) mRootView.findViewById(R.id.toolbar_detail);
+
+        final View toolbarContainerView = mRootView.findViewById(R.id.appBarLayout);
 
         //mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
         //mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
