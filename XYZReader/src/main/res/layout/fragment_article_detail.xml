@@ -73,7 +73,8 @@
                         style="?android:attr/textAppearanceSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/theme_accent" />
+                        android:textColor="@color/theme_accent"
+                        android:layout_marginBottom="4dp"/>
                 </LinearLayout>
 
                 <TextView
@@ -102,6 +103,7 @@
         android:layout_marginRight="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
         app:fabSize="normal"
-        app:backgroundTint="@color/theme_accent"/>
+        app:backgroundTint="@color/theme_accent"
+        app:elevation="@dimen/fab_elevation"/>
 
 </com.example.xyzreader.ui.DrawInsetsFrameLayout>
