@@ -45,7 +45,7 @@ public class ArticleListActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
-        ((CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout)).setTitle("Got it.");
+        ((CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout)).setTitle(getString(R.string.happy_reading));
         this.cl = (CoordinatorLayout) findViewById(R.id.main_content);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
